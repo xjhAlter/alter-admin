@@ -3,13 +3,14 @@
 </template>
 
 <script lang="ts">
-export default {
-    setup() {
-        console.log('index')
-    }
-}
+import { defineComponent } from "vue";
+export default defineComponent({
+  name: "home",
+  setup() {
+    console.log("index");
+  },
+});
 </script>
 
 <style>
-
 </style>
