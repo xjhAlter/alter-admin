@@ -1,2 +1,2 @@
 # alter-admin
-vue3 
+Vue3.0 + TypeScript + Vite 
