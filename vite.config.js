@@ -6,7 +6,7 @@ export default defineConfig({
     base: "/demo/",
     plugins: [vue()],
     server: {
-        port: 3030,
+        port: 3080,
         strictPort: true,
         open: false
     },

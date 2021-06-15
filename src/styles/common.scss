@@ -1,3 +1,20 @@
+// 背景图片地址和大小
+@mixin bg($url) {
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+// flex 布局 - 水平垂直居中
+@mixin flexcenter() {
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
 //宽高
 @mixin wh($width, $height) {
     width: $width;

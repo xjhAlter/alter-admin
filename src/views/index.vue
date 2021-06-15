@@ -1,16 +1,22 @@
 <template>
-  <h1>Hello world</h1>
+  <h1>Hello {{ userInfo.username }}</h1>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, computed, reactive, toRefs } from "vue";
+import store from "@/store";
 export default defineComponent({
   name: "home",
   setup() {
-    console.log("index");
+    const userInfo = computed(() => {
+      return store.getters.userInfo;
+    });
+    return {
+      userInfo,
+    };
   },
 });
 </script>
 
-<style>
+<style lang="scss" scoped>
 </style>

@@ -1,16 +1,16 @@
-import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router";
+import { createRouter, RouteRecordRaw, createWebHashHistory, createWebHistory } from "vue-router";
 import Layout from "../layout/index.vue"
 import store from '@/store'
 
 export const constantRoutes: Array<RouteRecordRaw> = [
     {
         path: "/",
-        name: "home",
+        name: "main",
         component: Layout,
-        redirect: "/Home",
+        redirect: "/home",
         children: [
             {
-                path: "/Home",
+                path: "/home",
                 name: "home",
                 component: () => import("@/views/index.vue"),
                 meta: {
@@ -46,13 +46,12 @@ export const constantRoutes: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHashHistory(),
+    // history: createWebHistory('/demo/'),  // 提供可选的base
     routes: constantRoutes,
 });
 
 router.beforeEach((to, _from, next) => {
-    console.log(to.path)
-    console.log(store.getters.token);
     if (to.path === '/login') {
         next();
     } else {
