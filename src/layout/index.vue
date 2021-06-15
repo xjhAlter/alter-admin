@@ -1,17 +1,24 @@
 <template>
   <div class="app-wrapper">
-    layout
-    <app-main></app-main>
+    <!-- 侧边导航栏 -->
+    <sidebar class="sidebar-container"/>
+    <!-- 内容 -->
+    <div class="main-container">
+      <div>
+
+      </div>
+       <app-main></app-main>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { AppMain } from "./components";
+import { AppMain, Sidebar } from "./components";
 export default defineComponent({
   name: "Layout",
   components: {
-    AppMain,
+    AppMain, Sidebar
   },
   setup() {
     console.log("setup");

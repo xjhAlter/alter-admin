@@ -23,6 +23,44 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         ]
     },
     {
+        path: "/test",
+        name: 'test',
+        component: Layout,
+        meta: { title: "菜单测试", icon: "el-icon-menu" },
+        children: [
+            {
+                path: "one",
+                name: "one",
+                component: () => import("@/views/index.vue"),
+                meta: {
+                    title: "一",
+                    savedPosition: false,
+                    affix: true
+                },
+            },
+            {
+                path: "two",
+                name: "two",
+                component: () => import("@/views/index.vue"),
+                meta: {
+                    title: "二",
+                    savedPosition: false,
+                    affix: true
+                },
+            },
+            {
+                path: "three",
+                name: "three",
+                component: () => import("@/views/index.vue"),
+                meta: {
+                    title: "三",
+                    savedPosition: false,
+                    affix: true
+                },
+            }
+        ]
+    },
+    {
         path: "/login",
         name: "login",
         component: () => import("@/views/login.vue"),
