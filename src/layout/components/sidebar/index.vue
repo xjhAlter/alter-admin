@@ -41,8 +41,9 @@ export default defineComponent({
       }
       return path;
     });
-    // const isCollapse = computed(() => !store.getters.sidebar.opened);
-      const isCollapse = computed(() => false);
+
+    const isCollapse = computed(() => !store.getters.sidebar.opened);
+
     return {
       routes,
       activeMenu,

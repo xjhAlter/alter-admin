@@ -1,7 +1,7 @@
 //用户信息
 export function getUserInfo() {
     let userInfo: any = localStorage.getItem('userInfo');
-    return userInfo == "undefined" ? "" : JSON.parse(userInfo);
+    return !userInfo ? "" : JSON.parse(userInfo);
 }
 export function setUserInfo(userInfo: any) {
     return localStorage.setItem('userInfo', JSON.stringify(userInfo));

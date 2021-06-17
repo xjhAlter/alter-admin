@@ -90,13 +90,17 @@ const router = createRouter({
 });
 
 router.beforeEach((to, _from, next) => {
-    if (to.path === '/login') {
-        next();
-    } else {
-        if (store.getters.token) {
-            next()
+    if (store.getters.token) {
+        if (to.path === '/login') {
+            next('/');
         } else {
-            next('/login')
+            next();
+        }
+    } else {
+        if (to.path === '/login') {
+            next();
+        } else {
+            next('/login');
         }
     }
 });
