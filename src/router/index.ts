@@ -1,7 +1,11 @@
 import { createRouter, RouteRecordRaw, createWebHashHistory, createWebHistory } from "vue-router";
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css' // progress bar style
 import Layout from "../layout/index.vue"
 import store from '@/store'
 import demoRoutes from './modules/demo'
+
+NProgress.configure({ showSpinner: false })
 
 export const constantRoutes: Array<RouteRecordRaw> = [
     {
@@ -53,7 +57,8 @@ const router = createRouter({
     routes: constantRoutes,
 });
 
-router.beforeEach((to, _from, next) => {
+router.beforeEach((to, from, next) => {
+    NProgress.start();
     if (store.getters.token) {
         if (to.path === '/login') {
             next('/');
@@ -68,5 +73,9 @@ router.beforeEach((to, _from, next) => {
         }
     }
 });
+
+router.afterEach((to, from) => {
+    NProgress.done();
+})
 
 export default router;
