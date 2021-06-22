@@ -43,4 +43,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.app-main {
+  padding: 20px;
+}
 </style>

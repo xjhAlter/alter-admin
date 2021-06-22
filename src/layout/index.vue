@@ -7,6 +7,7 @@
       <div :class="{ 'fixed-header': fixedHeader }">
         <!-- 顶部导航菜单 -->
         <nav-bar></nav-bar>
+        <tags-view></tags-view>
       </div>
       <app-main></app-main>
     </div>
@@ -17,7 +18,7 @@
 import { defineComponent, computed, reactive, toRefs } from "vue";
 import { useStore } from "vuex";
 import { IAppState } from "@/store/modules/app";
-import { AppMain, Sidebar, NavBar } from "./components";
+import { AppMain, Sidebar, NavBar, tagsView } from "./components";
 
 interface ISet extends IAppState {
   fixedHeader: boolean;
@@ -29,6 +30,7 @@ export default defineComponent({
     AppMain,
     Sidebar,
     NavBar,
+    tagsView
   },
   setup() {
     const store = useStore();
