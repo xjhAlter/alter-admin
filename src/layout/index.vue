@@ -1,5 +1,6 @@
 <template>
   <div class="app-wrapper" :class="classObj">
+    <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
     <!-- 侧边导航栏 -->
     <sidebar class="sidebar-container" />
     <!-- 内容 -->
@@ -19,6 +20,7 @@ import { defineComponent, computed, reactive, toRefs } from "vue";
 import { useStore } from "vuex";
 import { IAppState } from "@/store/modules/app";
 import { AppMain, Sidebar, NavBar, tagsView } from "./components";
+import resizeHandler from "./mixin/resize-handle";
 
 interface ISet extends IAppState {
   fixedHeader: boolean;
@@ -30,8 +32,9 @@ export default defineComponent({
     AppMain,
     Sidebar,
     NavBar,
-    tagsView
+    tagsView,
   },
+  mixins: [resizeHandler],
   setup() {
     const store = useStore();
 
@@ -40,7 +43,7 @@ export default defineComponent({
         return store.state.app.sidebar;
       }),
       device: computed(() => {
-        return store.state.app.deivce;
+        return store.state.app.device;
       }),
       fixedHeader: computed(() => {
         return store.state.settings.fixedHeader;
@@ -58,7 +61,7 @@ export default defineComponent({
 
     //切换侧边栏打开方式
     const handleClickOutside = () => {
-      store.dispatch("app/closeSideBar", { withoutAnimation: false });
+      store.dispatch("app/closeSidebar", { withoutAnimation: false });
     };
 
     return {
