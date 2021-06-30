@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-demo1">
     <el-button @click="handleClick" type="primary">点击</el-button>
     <p>年份: {{year}}</p>
     <p>月份: {{month.val}}</p>
@@ -55,4 +55,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.page-demo1 {
+  padding: 20px;
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
   <section class="app-main">
-    <div>
+    <div class="app-page-wrapper">
       <router-view v-slot="{ Component }">
         <keep-alive :include="cachedViews">
           <component :is="Component" :key="key" v-if="cached" />
@@ -44,6 +44,16 @@ export default defineComponent({
 
 <style scoped>
 .app-main {
-  padding: 20px;
+  min-height: calc(100vh - 85px);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.app-page-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 </style>
