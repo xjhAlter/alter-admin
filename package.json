@@ -8,6 +8,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "element-plus": "^1.0.2-beta.48",
+    "highlight.js": "^11.1.0",
     "nprogress": "^0.2.0",
     "path": "^0.12.7",
     "path-to-regexp": "^6.2.0",

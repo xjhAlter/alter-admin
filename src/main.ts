@@ -8,8 +8,17 @@ import store from "./store";
 
 import "./styles/index.scss";
 
+import hljs from "highlight.js";
+import "highlight.js/styles/vs2015.css";
+
 const app = createApp(App);
 app.use(ElementPlus, { locale });
 app.use(router);
 app.use(store);
+app.directive('highlight', function (el) {
+    let blocks = el.querySelectorAll('pre code');
+    blocks.forEach((block: any) => {
+        hljs.highlightBlock(block)
+    })
+})
 app.mount('#app');

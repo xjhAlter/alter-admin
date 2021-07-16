@@ -4,6 +4,7 @@ import 'nprogress/nprogress.css' // progress bar style
 import Layout from "../layout/index.vue"
 import store from '@/store'
 import demoRoutes from './modules/demo'
+import blogRoutes from './modules/blog'
 
 NProgress.configure({ showSpinner: false })
 
@@ -49,6 +50,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         ],
     },
     ...demoRoutes,
+    ...blogRoutes,
 ];
 
 const router = createRouter({
