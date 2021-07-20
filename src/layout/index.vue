@@ -8,7 +8,8 @@
       <div :class="{ 'fixed-header': fixedHeader }">
         <!-- 顶部导航菜单 -->
         <nav-bar></nav-bar>
-        <tags-view></tags-view>
+        <!-- tags-view 有点问题(会触发两次页面初始化的钩子), 暂时隐藏 -->
+        <!-- <tags-view></tags-view> -->
       </div>
       <app-main></app-main>
     </div>

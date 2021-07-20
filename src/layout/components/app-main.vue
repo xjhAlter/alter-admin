@@ -44,7 +44,9 @@ export default defineComponent({
 
 <style scoped>
 .app-main {
-  min-height: calc(100vh - 85px);
+  /* 隐藏tags-view */
+  /* min-height: calc(100vh - 85px); */
+    min-height: calc(100vh - 50px);
   width: 100%;
   position: relative;
   overflow: hidden;
