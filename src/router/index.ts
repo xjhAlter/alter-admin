@@ -49,8 +49,8 @@ export const constantRoutes: Array<RouteRecordRaw> = [
             },
         ],
     },
-    ...demoRoutes,
     ...blogRoutes,
+    ...demoRoutes,
 ];
 
 const router = createRouter({

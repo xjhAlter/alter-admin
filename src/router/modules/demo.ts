@@ -5,8 +5,17 @@ export default [
         name: 'demo',
         component: Layout,
         redirect: "/demo/demo1",
-        meta: { title: "菜单测试", icon: "el-icon-menu" },
+        meta: { title: "Demo", icon: "el-icon-monitor" },
         children: [
+            {
+                path: "waterfall",
+                name: "waterfallDemo",
+                component: () => import("@/views/demo/waterfall.vue"),
+                meta: {
+                    title: "瀑布流",
+                    savedPosition: false,
+                },
+            },
             {
                 path: "demo1",
                 name: "demo1",

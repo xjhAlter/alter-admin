@@ -109,11 +109,8 @@ export default defineComponent({
 .page-home {
   overflow: hidden;
   background-image: url("/src/assets/img/common/home-bg.png");
-  background-position: 50%;
   background-repeat: no-repeat;
-  background-position-x: 50%;
-  background-position-y: 100%;
-  background-size: 100% auto;
+  background-size: cover;
 }
 
 .artifact-item {

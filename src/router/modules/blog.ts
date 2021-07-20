@@ -5,7 +5,7 @@ export default [
         name: 'blog',
         component: Layout,
         redirect: "/blog/document",
-        meta: { title: "Blogs", icon: "el-icon-menu" },
+        meta: { title: "Blogs", icon: "el-icon-collection" },
         children: [
             {
                 path: "document",
