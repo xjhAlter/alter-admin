@@ -17,6 +17,15 @@ export default [
                 },
             },
             {
+                path: "scroll-number",
+                name: "scrollNumberDemo",
+                component: () => import("@/views/demo/scroll-number.vue"),
+                meta: {
+                    title: "滚动数字",
+                    savedPosition: false,
+                },
+            },
+            {
                 path: "demo1",
                 name: "demo1",
                 component: () => import("@/views/demo/demo1.vue"),
