@@ -1,6 +1,7 @@
 <template>
   <div class="page">
     <div class="page-scroll-number">
+      <h1 class="page-title">滚动数字demo</h1>
       <div class="date-wrapper">
         <scroll-num v-for="(i,index) in year" :i="+i" :delay="(index + 1) / 2" :key="'' + count + index" color="orange" width="30px"></scroll-num>
         <span>-</span>
@@ -133,7 +134,7 @@
 import { defineComponent, reactive, toRefs } from "vue";
 import scrollNum from "@/components/scroll-num/index.vue";
 export default defineComponent({
-  name: "scrollNumber",
+  name: "scrollNumberDemo",
   components: { scrollNum },
   setup() {
     const state = reactive({

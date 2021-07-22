@@ -9,7 +9,7 @@ export default [
         children: [
             {
                 path: "document",
-                name: "document",
+                name: "documentBlog",
                 component: () => import("@/views/blog/document.vue"),
                 meta: {
                     title: "document",
@@ -18,10 +18,19 @@ export default [
             },
             {
                 path: "css",
-                name: "css",
+                name: "cssBlog",
                 component: () => import("@/views/blog/css.vue"),
                 meta: {
                     title: "css",
+                    savedPosition: false,
+                },
+            },
+            {
+                path: "layout",
+                name: "layoutBlog",
+                component: () => import("@/views/blog/layout.vue"),
+                meta: {
+                    title: "布局",
                     savedPosition: false,
                 },
             },
