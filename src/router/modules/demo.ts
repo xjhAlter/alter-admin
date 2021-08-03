@@ -26,6 +26,15 @@ export default [
                 },
             },
             {
+                path: "clip-text",
+                name: "clipTextDemo",
+                component: () => import("@/views/demo/clip-text.vue"),
+                meta: {
+                    title: "图片动效1",
+                    savedPosition: false,
+                },
+            },
+            {
                 path: "demo1",
                 name: "demo1",
                 component: () => import("@/views/demo/demo1.vue"),
