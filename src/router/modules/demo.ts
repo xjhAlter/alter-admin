@@ -26,6 +26,15 @@ export default [
                 },
             },
             {
+                path: "digital-char-rain",
+                name: "digitalCharRainDemo",
+                component: () => import("@/views/demo/digital-char-rain.vue"),
+                meta: {
+                    title: "字符雨",
+                    savedPosition: false,
+                },
+            },
+            {
                 path: "clip-text",
                 name: "clipTextDemo",
                 component: () => import("@/views/demo/clip-text.vue"),
