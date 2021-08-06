@@ -44,6 +44,15 @@ export default [
                 },
             },
             {
+                path: "music-player",
+                name: "musicPlayerDemo",
+                component: () => import("@/views/demo/music-player.vue"),
+                meta: {
+                    title: "音乐播放器",
+                    savedPosition: false,
+                },
+            },
+            {
                 path: "demo1",
                 name: "demo1",
                 component: () => import("@/views/demo/demo1.vue"),
