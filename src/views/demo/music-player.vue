@@ -13,6 +13,9 @@
         </div>
         <span class="music-duration">{{totalDuration}}</span>
       </div>
+      <div class="spectrum-list">
+        <div v-for="n in 5" :key="n" class="spectrum-item"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -99,6 +102,7 @@ export default defineComponent({
           onUpdate: updateCurrentTime,
           onComplete: function () {
             state.status = 0;
+            tmSpectrum.pause();
           },
         }
       );
@@ -115,6 +119,7 @@ export default defineComponent({
         }
         music.value.play();
         state.status = 1;
+        spectrumPlay();
       }
     };
 
@@ -124,6 +129,7 @@ export default defineComponent({
         music.value.pause();
         state.status = 2;
         tm.pause();
+        tmSpectrum.pause();
       }
     };
 
@@ -141,6 +147,21 @@ export default defineComponent({
       if (document.visibilityState === "visible" && state.status === 1) {
         updateProgress();
       }
+    };
+
+    let tmSpectrum: any = null;
+
+    // 播放频谱
+    const spectrumPlay = () => {
+      // @ts-ignore
+      tmSpectrum = new TweenMax(".spectrum-item", 0.2, {
+        height: function () {
+          return 6 + Math.random() * 24;
+        },
+        onComplete: function () {
+          spectrumPlay();
+        },
+      });
     };
 
     return {
@@ -200,6 +221,37 @@ export default defineComponent({
     height: 5px;
     background: #fff;
     margin-top: -1px;
+  }
+}
+
+.spectrum-list {
+  display: flex;
+  align-items: flex-end;
+  width: 100px;
+  height: 100px;
+  .spectrum-item {
+    width: 2px;
+    height: 10px;
+    margin-right: 3px;
+    background-color: #fff;
+    border-left: 1px solid #bababa;
+    border-right: 1px solid #585858;
+    box-sizing: content-box;
+    &:nth-child(1) {
+      height: 27px;
+    }
+    &:nth-child(2) {
+      height: 18px;
+    }
+    &:nth-child(3) {
+      height: 24px;
+    }
+    &:nth-child(4) {
+      height: 15px;
+    }
+    &:nth-child(5) {
+      height: 10px;
+    }
   }
 }
 </style>
