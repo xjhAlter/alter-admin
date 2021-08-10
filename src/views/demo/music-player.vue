@@ -35,6 +35,7 @@
         ref,
         computed,
     } from 'vue'
+    import { gsap } from 'gsap'
 
     export default defineComponent({
         name: 'musicPlayerDemo',
@@ -47,7 +48,7 @@
                 status: 0, // 0 - 未播放, 1 - 播放中, 2 - 暂停中
                 currentTime: 0, // 当前播放进度
             })
-            let tm: any = null
+            let playerTween: any = null
 
             onMounted(() => {
                 music.value.addEventListener('canplay', function () {
@@ -93,18 +94,19 @@
 
             // 根据音频播放时间更新进度条动画
             const updateProgress = () => {
-                // @ts-ignore
-                tm = new TweenMax('#music-progress', state.duration - music.value.currentTime, {
+                // 停止上一个动画
+                gsap.killTweensOf('#music-progress')
+                playerTween = gsap.to('#music-progress', {
                     width: '100%',
                     startAt: {
                         width: (music.value.currentTime / state.duration) * 100 + '%',
                     },
-                    // @ts-ignore
-                    ease: Power0.easeNone,
+                    ease: 'none',
+                    duration: state.duration - music.value.currentTime,
                     onUpdate: updateCurrentTime,
                     onComplete: function () {
                         state.status = 0
-                        tmSpectrum.pause()
+                        spectrumTween.pause()
                     },
                 })
             }
@@ -116,7 +118,7 @@
                         music.value.currentTime = 0
                         updateProgress()
                     } else if (state.status === 2) {
-                        tm.resume()
+                        playerTween.resume()
                     }
                     music.value.play()
                     state.status = 1
@@ -129,8 +131,8 @@
                 if (state.status === 1) {
                     music.value.pause()
                     state.status = 2
-                    tm.pause()
-                    tmSpectrum.pause()
+                    playerTween.pause()
+                    spectrumTween.pause()
                 }
             }
 
@@ -150,15 +152,15 @@
                 }
             }
 
-            let tmSpectrum: any = null
+            let spectrumTween: any = null
 
             // 播放频谱
             const spectrumPlay = () => {
-                // @ts-ignore
-                tmSpectrum = new TweenMax('.spectrum-item', 0.2, {
+                spectrumTween = gsap.to('.spectrum-item', {
                     height: function () {
                         return 6 + Math.random() * 24
                     },
+                    duration: 0.2,
                     onComplete: function () {
                         spectrumPlay()
                     },
