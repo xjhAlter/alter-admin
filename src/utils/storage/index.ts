@@ -1,16 +1,16 @@
 interface ProxyStorage {
-    getItem(key: string): any;
-    setItem(key: string, value: any): void;
-    removeItem(key: string): void;
-    clear(): void;
+    getItem(key: string): any
+    setItem(key: string, value: any): void
+    removeItem(key: string): void
+    clear(): void
 }
 
 //sessionStorage
 class sessionStorageProxy implements ProxyStorage {
-    protected storage: ProxyStorage;
+    protected storage: ProxyStorage
 
     constructor(storageModel: ProxyStorage) {
-        this.storage = storageModel;
+        this.storage = storageModel
     }
     //存
     public setItem(key: string, value: any): void {
@@ -37,6 +37,6 @@ class localStorageProxy extends sessionStorageProxy implements ProxyStorage {
     }
 }
 
-export const storageSession = new sessionStorageProxy(sessionStorage);
+export const storageSession = new sessionStorageProxy(sessionStorage)
 
-export const storageLocal = new localStorageProxy(localStorage);
+export const storageLocal = new localStorageProxy(localStorage)

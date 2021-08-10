@@ -1,11 +1,11 @@
-import { getToken, setToken, getUserInfo, setUserInfo, removeUserInfo } from "@/utils/user"
+import { getToken, setToken, getUserInfo, setUserInfo, removeUserInfo } from '@/utils/user'
 interface IUserInfo {
-    username: string,
+    username: string
 }
 
 export interface IUserState {
-    userInfo: IUserInfo,
-    token: string | null,
+    userInfo: IUserInfo
+    token: string | null
 }
 
 const getDefaultState = () => {
@@ -15,45 +15,45 @@ const getDefaultState = () => {
     }
 }
 
-const state: IUserState = getDefaultState();
+const state: IUserState = getDefaultState()
 
 const mutations = {
     RESET_STATE: (state: IUserState) => {
-        Object.assign(state, getDefaultState());
+        Object.assign(state, getDefaultState())
     },
     SET_USER_INFO: (state: IUserState, data: IUserInfo) => {
-        state.userInfo = data;
+        state.userInfo = data
     },
     SET_TOKEN: (state: IUserState, data: string) => {
-        state.token = data;
-    }
+        state.token = data
+    },
 }
 
 const actions = {
     login({ commit }: any, data: any) {
         return new Promise<void>((resolve) => {
-            const { username, password } = data;
-            const userInfo = { username };
-            const token = 'token' + password; // 简单处理下
-            commit('SET_USER_INFO', userInfo);
-            commit('SET_TOKEN', token);
-            setUserInfo(userInfo);
-            setToken(token);
-            resolve();
+            const { username, password } = data
+            const userInfo = { username }
+            const token = 'token' + password // 简单处理下
+            commit('SET_USER_INFO', userInfo)
+            commit('SET_TOKEN', token)
+            setUserInfo(userInfo)
+            setToken(token)
+            resolve()
         })
     },
     logout({ commit }: any) {
         return new Promise<void>((resolve) => {
-            removeUserInfo();
-            commit('RESET_STATE');
-            resolve();
+            removeUserInfo()
+            commit('RESET_STATE')
+            resolve()
         })
-    }
+    },
 }
 
 export default {
     namespaced: true,
     state,
     mutations,
-    actions
+    actions,
 }

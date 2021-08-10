@@ -10,7 +10,7 @@ export default {
             if (this.device === 'mobile' && this.sidebar.opened) {
                 store.dispatch('app/closeSidebar', { withoutAnimation: false })
             }
-        }
+        },
     },
     beforeMount() {
         // @ts-ignore
@@ -30,7 +30,7 @@ export default {
     },
     methods: {
         $_isMobile() {
-            const rect = body.getBoundingClientRect();
+            const rect = body.getBoundingClientRect()
             return rect.width - 1 < WIDTH
         },
         $_resizeHandler() {
@@ -42,6 +42,6 @@ export default {
                     store.dispatch('app/closeSidebar', { withoutAnimation: false })
                 }
             }
-        }
-    }
+        },
+    },
 }

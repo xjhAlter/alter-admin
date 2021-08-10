@@ -1,7 +1,7 @@
-import { createRouter, RouteRecordRaw, createWebHashHistory, createWebHistory } from "vue-router";
+import { createRouter, RouteRecordRaw, createWebHashHistory, createWebHistory } from 'vue-router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css' // progress bar style
-import Layout from "../layout/index.vue"
+import Layout from '../layout/index.vue'
 import store from '@/store'
 import demoRoutes from './modules/demo'
 import blogRoutes from './modules/blog'
@@ -10,74 +10,74 @@ NProgress.configure({ showSpinner: false })
 
 export const constantRoutes: Array<RouteRecordRaw> = [
     {
-        path: "/",
-        name: "main",
+        path: '/',
+        name: 'main',
         component: Layout,
-        redirect: "/home",
+        redirect: '/home',
         children: [
             {
-                path: "/home",
-                name: "home",
-                component: () => import("@/views/index.vue"),
+                path: '/home',
+                name: 'home',
+                component: () => import('@/views/index.vue'),
                 meta: {
-                    icon: "el-icon-s-home",
-                    title: "Home",
+                    icon: 'el-icon-s-home',
+                    title: 'Home',
                     savedPosition: false,
-                    affix: true
+                    affix: true,
                 },
             },
-        ]
+        ],
     },
     {
-        path: "/login",
-        name: "login",
-        component: () => import("@/views/login.vue"),
+        path: '/login',
+        name: 'login',
+        component: () => import('@/views/login.vue'),
         meta: {
-            title: "login",
+            title: 'login',
             hidden: true,
         },
     },
     {
-        path: "/redirect",
-        name: "redirect",
+        path: '/redirect',
+        name: 'redirect',
         component: Layout,
         children: [
             {
-                path: "/redirect/:path(.*)",
-                component: () => import("@/views/redirect.vue"),
-                meta: { hidden: true }
+                path: '/redirect/:path(.*)',
+                component: () => import('@/views/redirect.vue'),
+                meta: { hidden: true },
             },
         ],
     },
     ...blogRoutes,
     ...demoRoutes,
-];
+]
 
 const router = createRouter({
     history: createWebHashHistory(),
     // history: createWebHistory('/demo/'),  // 提供可选的base
     routes: constantRoutes,
-});
+})
 
 router.beforeEach((to, from, next) => {
-    NProgress.start();
+    NProgress.start()
     if (store.getters.token) {
         if (to.path === '/login') {
-            next('/');
+            next('/')
         } else {
-            next();
+            next()
         }
     } else {
         if (to.path === '/login') {
-            next();
+            next()
         } else {
-            next('/login');
+            next('/login')
         }
     }
-});
-
-router.afterEach((to, from) => {
-    NProgress.done();
 })
 
-export default router;
+router.afterEach((to, from) => {
+    NProgress.done()
+})
+
+export default router

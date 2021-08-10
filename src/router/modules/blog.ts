@@ -1,39 +1,39 @@
-import Layout from "@/layout/index.vue"
+import Layout from '@/layout/index.vue'
 export default [
     {
-        path: "/blog",
+        path: '/blog',
         name: 'blog',
         component: Layout,
-        redirect: "/blog/document",
-        meta: { title: "Blogs", icon: "el-icon-collection" },
+        redirect: '/blog/document',
+        meta: { title: 'Blogs', icon: 'el-icon-collection' },
         children: [
             {
-                path: "document",
-                name: "documentBlog",
-                component: () => import("@/views/blog/document.vue"),
+                path: 'document',
+                name: 'documentBlog',
+                component: () => import('@/views/blog/document.vue'),
                 meta: {
-                    title: "document",
+                    title: 'document',
                     savedPosition: false,
                 },
             },
             {
-                path: "css",
-                name: "cssBlog",
-                component: () => import("@/views/blog/css.vue"),
+                path: 'css',
+                name: 'cssBlog',
+                component: () => import('@/views/blog/css.vue'),
                 meta: {
-                    title: "css",
+                    title: 'css',
                     savedPosition: false,
                 },
             },
             {
-                path: "layout",
-                name: "layoutBlog",
-                component: () => import("@/views/blog/layout.vue"),
+                path: 'layout',
+                name: 'layoutBlog',
+                component: () => import('@/views/blog/layout.vue'),
                 meta: {
-                    title: "布局",
+                    title: '布局',
                     savedPosition: false,
                 },
             },
-        ]
-    }
+        ],
+    },
 ]

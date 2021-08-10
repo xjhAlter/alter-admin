@@ -1,75 +1,75 @@
-import Layout from "@/layout/index.vue"
+import Layout from '@/layout/index.vue'
 export default [
     {
-        path: "/demo",
+        path: '/demo',
         name: 'demo',
         component: Layout,
-        redirect: "/demo/demo1",
-        meta: { title: "Demo", icon: "el-icon-monitor" },
+        redirect: '/demo/demo1',
+        meta: { title: 'Demo', icon: 'el-icon-monitor' },
         children: [
             {
-                path: "waterfall",
-                name: "waterfallDemo",
-                component: () => import("@/views/demo/waterfall.vue"),
+                path: 'waterfall',
+                name: 'waterfallDemo',
+                component: () => import('@/views/demo/waterfall.vue'),
                 meta: {
-                    title: "瀑布流",
+                    title: '瀑布流',
                     savedPosition: false,
                 },
             },
             {
-                path: "scroll-number",
-                name: "scrollNumberDemo",
-                component: () => import("@/views/demo/scroll-number.vue"),
+                path: 'scroll-number',
+                name: 'scrollNumberDemo',
+                component: () => import('@/views/demo/scroll-number.vue'),
                 meta: {
-                    title: "滚动数字",
+                    title: '滚动数字',
                     savedPosition: false,
                 },
             },
             {
-                path: "digital-char-rain",
-                name: "digitalCharRainDemo",
-                component: () => import("@/views/demo/digital-char-rain.vue"),
+                path: 'digital-char-rain',
+                name: 'digitalCharRainDemo',
+                component: () => import('@/views/demo/digital-char-rain.vue'),
                 meta: {
-                    title: "字符雨",
+                    title: '字符雨',
                     savedPosition: false,
                 },
             },
             {
-                path: "clip-text",
-                name: "clipTextDemo",
-                component: () => import("@/views/demo/clip-text.vue"),
+                path: 'clip-text',
+                name: 'clipTextDemo',
+                component: () => import('@/views/demo/clip-text.vue'),
                 meta: {
-                    title: "图片动效1",
+                    title: '图片动效1',
                     savedPosition: false,
                 },
             },
             {
-                path: "music-player",
-                name: "musicPlayerDemo",
-                component: () => import("@/views/demo/music-player.vue"),
+                path: 'music-player',
+                name: 'musicPlayerDemo',
+                component: () => import('@/views/demo/music-player.vue'),
                 meta: {
-                    title: "音乐播放器",
+                    title: '音乐播放器',
                     savedPosition: false,
                 },
             },
             {
-                path: "demo1",
-                name: "demo1",
-                component: () => import("@/views/demo/demo1.vue"),
+                path: 'demo1',
+                name: 'demo1',
+                component: () => import('@/views/demo/demo1.vue'),
                 meta: {
-                    title: "demo1",
+                    title: 'demo1',
                     savedPosition: false,
                 },
             },
             {
-                path: "demo2",
-                name: "demo2",
-                component: () => import("@/views/demo/demo2.vue"),
+                path: 'demo2',
+                name: 'demo2',
+                component: () => import('@/views/demo/demo2.vue'),
                 meta: {
-                    title: "demo2",
+                    title: 'demo2',
                     savedPosition: false,
                 },
             },
-        ]
-    }
+        ],
+    },
 ]
