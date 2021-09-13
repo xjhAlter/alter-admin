@@ -4,7 +4,13 @@ import { resolve } from 'path'
 
 export default defineConfig({
     base: "/alter/",
-    plugins: [vue()],
+    plugins: [vue({
+        template: {
+            compilerOptions: {
+                isCustomElement: tag => tag.startsWith('fc-')
+            }
+        }
+    })],
     server: {
         port: 3080,
         strictPort: true,

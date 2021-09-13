@@ -91,8 +91,8 @@
     </div>
 </template>
 
-<script>
-    import { defineComponent, reactive, toRefs, onMounted } from 'vue'
+<script lang="ts">
+    import { defineComponent } from 'vue'
 
     export default defineComponent({
         name: 'clipTextDemo',

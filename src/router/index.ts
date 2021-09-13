@@ -5,6 +5,7 @@ import Layout from '../layout/index.vue'
 import store from '@/store'
 import demoRoutes from './modules/demo'
 import blogRoutes from './modules/blog'
+import libraryRoutes from './modules/library'
 
 NProgress.configure({ showSpinner: false })
 
@@ -51,6 +52,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     },
     ...blogRoutes,
     ...demoRoutes,
+    ...libraryRoutes,
 ]
 
 const router = createRouter({

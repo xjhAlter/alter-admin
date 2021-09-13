@@ -11,6 +11,9 @@ import './styles/index.scss'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/vs2015.css'
 
+import { FcWaveFilter } from 'fancy-components'
+new FcWaveFilter()
+
 const app = createApp(App)
 app.use(ElementPlus, { locale })
 app.use(router)
