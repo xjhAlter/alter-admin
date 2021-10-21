@@ -53,6 +53,15 @@ export default [
                 },
             },
             {
+                path: 'live2d',
+                name: 'live2d',
+                component: () => import('@/views/demo/live2d.vue'),
+                meta: {
+                    title: 'live2d',
+                    savedPosition: false,
+                },
+            },
+            {
                 path: 'demo1',
                 name: 'demo1',
                 component: () => import('@/views/demo/demo1.vue'),
